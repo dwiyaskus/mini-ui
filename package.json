@@ -1,6 +1,6 @@
 {
-  "name": "mini-ui",
-  "version": "0.0.0",
+  "name": "gladio-ui",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +10,7 @@
     "storybook": "ng run mini-ui:storybook",
     "build-storybook": "ng run mini-ui:build-storybook"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^18.0.0",
     "@angular/common": "^18.0.0",
@@ -51,5 +51,14 @@
     "storybook": "^8.4.5",
     "tailwindcss": "^3.4.17",
     "typescript": "~5.4.2"
-  }
+  },
+  "repository": {
+  "type": "git",
+  "url": "git+https://github.com/dwiyaskus/mini-ui.git"
+},
+"bugs": {
+  "url": "https://github.com/dwiyaskus/mini-ui/issues"
+},
+"homepage": "https://github.com/dwiyaskus/mini-ui#readme"
+
 }
