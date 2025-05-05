@@ -1,0 +1,59 @@
+<div [ngStyle]="legendStyleScroll()" [style.font-size.px]="10">
+  <div
+    #legendContainer
+    style="width: '100%'; overflow: hidden"
+    [style.max-width.px]="legend_width"
+    [style.display]="
+      legend_orientation === 'horizontal'
+        ? legend_type === 'scroll'
+          ? 'flex'
+          : '-webkit-flex'
+        : legend_type === 'scroll'
+        ? ''
+        : '-webkit-flex'
+    "
+    [style.max-height.px]="
+      legend_orientation === 'vertical'
+        ? height
+        : legend_type === 'plain'
+        ? height * 0.2
+        : ''
+    "
+    [style.-webkit-flex-flow]="legend_type === 'plain' ? 'column wrap' : ''"
+  >
+    <div
+      *ngFor="let item of legend"
+      style="
+        min-width: fit-content;
+        display: flex;
+        margin-right: 5px;
+        align-items: center;
+      "
+    >
+      <div
+        style="
+          width: 25px !important;
+          height: 15px !important;
+          border: white 1px solid;
+          cursor: pointer;
+          border-radius: 5px;
+          margin-right: 5px;
+        "
+        [ngStyle]="{ 'background-color': item.color }"
+      ></div>
+      {{ item.label }}
+    </div>
+  </div>
+  <div
+    style="display: flex; min-width: fit-content"
+    *ngIf="legend_type === 'scroll' && totP > 1"
+  >
+    <button (click)="previousScroll()" [disabled]="curP === 1" class="page-btn">
+      <i class="fa fa-caret-left fa-lg"></i>
+    </button>
+    <span class="page-info">{{ curP }} / {{ totP }}</span>
+    <button (click)="nextScroll()" [disabled]="curP === totP" class="page-btn">
+      <i class="fa fa-caret-right fa-lg"></i>
+    </button>
+  </div>
+</div>
